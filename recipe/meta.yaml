@@ -1,5 +1,5 @@
 {% set name = "menpo" %}
-{% set version = "0.10.0" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0dec7383f60340b34d2023314090712b438d2a916002ab33781b918d06cbcef7
+  sha256: 6298f93ab5c29331baa164c0c12453fcedf573b22c407d7caa413747404bf250
 
 build:
-  number: 3
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   skip: True  # [win or py<35]
 
