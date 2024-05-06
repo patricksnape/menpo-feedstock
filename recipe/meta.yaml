@@ -1,5 +1,5 @@
 {% set name = "menpo" %}
-{% set version = "0.11.0" %}
+{% set version = "0.11.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,25 +7,20 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6298f93ab5c29331baa164c0c12453fcedf573b22c407d7caa413747404bf250
+  sha256: 6078270962d7c036872d61a470b0b539e972990748a33a2a31940a06386abefb
 
 build:
-  number: 1
+  number: 0
+  noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [win or py<35]
 
 requirements:
-  build:
-     - {{ compiler('cxx') }}
-
   host:
-    - python
-    - cython
-    - numpy
+    - python >=3.7
     - pip
 
   run:
-    - python
+    - python >=3.7
     - {{ pin_compatible('numpy') }}
     - scipy
     - pillow
